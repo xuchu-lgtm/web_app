@@ -1,0 +1,5 @@
+{"level":"ERROR","time":"2022-09-26T17:55:05.121+0800","caller":"mysql/mysql.go:22","msg":"connect Db failed, err: %v\n","error":"sql: unknown driver \"mysql\" (forgotten import?)"}
+{"level":"ERROR","time":"2022-09-26T18:04:24.525+0800","caller":"mysql/mysql.go:22","msg":"connect Db failed, err: %v\n","error":"sql: unknown driver \"mysql\" (forgotten import?)"}
+{"level":"ERROR","time":"2022-09-26T18:09:21.654+0800","caller":"redis/redis.go:21","msg":"redis ping err","error":"dial tcp 101.43.29.139:6379: i/o timeout"}
+{"level":"INFO","time":"2022-09-26T18:18:01.011+0800","caller":"web_app/main.go:63","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-09-26T18:18:01.034+0800","caller":"web_app/main.go:69","msg":"Server exiting"}
