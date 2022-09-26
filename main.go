@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"go.uber.org/zap"
 	"log"
@@ -20,8 +21,12 @@ import (
 //Go Web脚手架
 
 func main() {
+	var configFile string
+	flag.StringVar(&configFile, "configFile", "./config.yaml", "配置文件")
+	flag.Parse()
+
 	// 1. 加载配置
-	if err := settings.Init(); err != nil {
+	if err := settings.Init(configFile); err != nil {
 		fmt.Printf("init settings failed, err: %v\n", err)
 		return
 	}

@@ -12,3 +12,17 @@
 {"level":"INFO","time":"2022-09-26T22:07:25.714+0800","caller":"logger/logger.go:69","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":0}
 {"level":"INFO","time":"2022-09-26T22:07:36.619+0800","caller":"web_app/main.go:64","msg":"Shutdown Server..."}
 {"level":"INFO","time":"2022-09-26T22:07:36.624+0800","caller":"web_app/main.go:70","msg":"Server exiting"}
+{"level":"INFO","time":"2022-09-26T22:21:57.970+0800","caller":"web_app/main.go:64","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-09-26T22:21:57.994+0800","caller":"web_app/main.go:70","msg":"Server exiting"}
+{"level":"INFO","time":"2022-09-26T22:59:21.039+0800","caller":"web_app/main.go:69","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-09-26T22:59:21.071+0800","caller":"web_app/main.go:75","msg":"Server exiting"}
+{"level":"INFO","time":"2022-09-26T22:59:43.496+0800","caller":"web_app/main.go:69","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-09-26T22:59:43.524+0800","caller":"web_app/main.go:75","msg":"Server exiting"}
+{"level":"INFO","time":"2022-09-26T22:59:57.824+0800","caller":"web_app/main.go:69","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-09-26T22:59:57.850+0800","caller":"web_app/main.go:75","msg":"Server exiting"}
+{"level":"INFO","time":"2022-09-26T23:00:12.670+0800","caller":"web_app/main.go:69","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-09-26T23:00:12.700+0800","caller":"web_app/main.go:75","msg":"Server exiting"}
+{"level":"INFO","time":"2022-09-26T23:05:58.395+0800","caller":"web_app/main.go:69","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-09-26T23:05:58.424+0800","caller":"web_app/main.go:75","msg":"Server exiting"}
+{"level":"INFO","time":"2022-09-26T23:06:20.026+0800","caller":"web_app/main.go:69","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-09-26T23:06:20.050+0800","caller":"web_app/main.go:75","msg":"Server exiting"}

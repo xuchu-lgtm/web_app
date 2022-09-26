@@ -18,7 +18,7 @@ func Init(cfg *settings.MySQLConfig) (err error) {
 		cfg.Port,
 		cfg.DbName,
 	)
-	db, err := sqlx.Connect("mysql", dns)
+	db, err = sqlx.Connect("mysql", dns)
 	if err != nil {
 		zap.L().Error("connect Db failed, err: %v\n", zap.Error(err))
 		return
