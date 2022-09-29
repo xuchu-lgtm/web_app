@@ -11,7 +11,7 @@ import (
 var db *sqlx.DB
 
 func Init(cfg *settings.MySQLConfig) (err error) {
-	dns := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=true",
+	dns := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=true&loc=Local",
 		cfg.User,
 		cfg.Password,
 		cfg.Host,
