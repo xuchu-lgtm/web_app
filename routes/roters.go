@@ -2,6 +2,7 @@ package routes
 
 import (
 	"fmt"
+	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	gs "github.com/swaggo/gin-swagger"
@@ -49,6 +50,8 @@ func SetupRouter(mode string) *gin.Engine {
 
 		v1.POST("/vote", controller.PostVoteController)
 	}
+
+	pprof.Register(r) //注册pprof相关路由
 
 	r.NoRoute(func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
