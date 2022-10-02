@@ -13,26 +13,32 @@ import (
 }
 */
 
+type ResponseData struct {
+	Code ResCode     `json:"code"`
+	Msg  interface{} `json:"msg"`
+	Data interface{} `json:"data,omitempty"`
+}
+
 func ResponseError(c *gin.Context, code ResCode) {
-	c.JSON(http.StatusOK, gin.H{
-		"code": code,
-		"msg":  code.Msg(),
-		"data": nil,
+	c.JSON(http.StatusOK, &ResponseData{
+		Code: code,
+		Msg:  code.Msg(),
+		Data: nil,
 	})
 }
 
 func ResponseSuccess(c *gin.Context, data interface{}) {
-	c.JSON(http.StatusOK, gin.H{
-		"code": CodeSuccess,
-		"msg":  CodeSuccess.Msg(),
-		"data": data,
+	c.JSON(http.StatusOK, &ResponseData{
+		Code: CodeSuccess,
+		Msg:  CodeSuccess.Msg(),
+		Data: data,
 	})
 }
 
 func ResponseErrorWithMsg(c *gin.Context, code ResCode, msg interface{}) {
-	c.JSON(http.StatusOK, gin.H{
-		"code": code,
-		"msg":  msg,
-		"data": nil,
+	c.JSON(http.StatusOK, &ResponseData{
+		Code: code,
+		Msg:  msg,
+		Data: nil,
 	})
 }

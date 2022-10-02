@@ -27,9 +27,17 @@ func InsertUser(user *models.User) (err error) {
 	return
 }
 
-func FindUser(username string) (user models.User, err error) {
+func FindUser(username string) (user *models.User, err error) {
+	user = new(models.User)
 	strSql := `select user_id, username, password from user where username = ?`
-	err = db.Get(&user, strSql, username)
+	err = db.Get(user, strSql, username)
+	return
+}
+
+func GetUserById(userId int64) (user *models.User, err error) {
+	user = new(models.User)
+	strSql := `select user_id, username, password from user where user_id = ?`
+	err = db.Get(user, strSql, userId)
 	return
 }
 

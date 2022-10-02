@@ -30,9 +30,7 @@ func SignUp(p *models.ParamSignUp) (err error) {
 }
 
 func Login(p *models.ParamLogin) (token string, err error) {
-
-	var user models.User
-	user, err = mysql.FindUser(p.UserName)
+	user, err := mysql.FindUser(p.UserName)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			return "", ErrorUserNotExists

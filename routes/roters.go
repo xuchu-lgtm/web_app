@@ -3,8 +3,12 @@ package routes
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	gs "github.com/swaggo/gin-swagger"
 	"net/http"
+	"time"
 	"web_app/controller"
+	_ "web_app/docs"
 	"web_app/logger"
 	"web_app/middlewares"
 )
@@ -23,6 +27,8 @@ func SetupRouter(mode string) *gin.Engine {
 
 	r := gin.New()
 	r.Use(logger.GinLogger(), logger.GinRecovery(true))
+	r.GET("/swagger/*any", gs.WrapHandler(swaggerFiles.Handler),
+		middlewares.RateLimitMiddleware(2*time.Second, 1)) // 令牌桶=> 每两秒钟可以取一个令牌
 
 	v1 := r.Group("/api/v1")
 	//注册
@@ -35,7 +41,13 @@ func SetupRouter(mode string) *gin.Engine {
 	{
 		v1.GET("/community", controller.CommunityHandler)
 		v1.GET("/community/:id", controller.CommunityDetailHandler)
+
 		v1.POST("/post", controller.CreatePostHandler)
+		v1.GET("/post/:id", controller.GetPostDetailHandler)
+		v1.GET("/posts", controller.GetPostListHandler)
+		v1.GET("/posts2", controller.GetPostListHandler2)
+
+		v1.POST("/vote", controller.PostVoteController)
 	}
 
 	r.NoRoute(func(c *gin.Context) {
