@@ -4,10 +4,15 @@ import (
 	"errors"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
+	"net/http"
 	"strconv"
 	"web_app/dao/mysql"
 	"web_app/logic"
 )
+
+func IndexHandler(c *gin.Context) {
+	c.HTML(http.StatusOK, "index.html", nil)
+}
 
 func CommunityHandler(c *gin.Context) {
 	data, err := logic.GetCommunityList()

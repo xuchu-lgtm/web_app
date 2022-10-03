@@ -23,12 +23,26 @@ RUN go build -o app .
 ###################
 # 接下来创建一个小镜像
 ###################
-FROM scratch
+FROM debian:stretch-slim
 
-COPY ./config.yaml /
+COPY ./wait-for.sh /
+COPY ./docs /docs
+COPY ./templates /templates
+COPY ./static /static
+COPY ./conf /conf
 
 # 从builder镜像中把/dist/app 拷贝到当前目录
 COPY --from=builder /build/app /
 
-# 需要运行的命令
-ENTRYPOINT ["/app"]
+RUN set -eux; \
+	apt-get -q update; \
+	apt-get install -y \
+		--no-install-recommends \
+		netcat; \
+        chmod 755 wait-for.sh
+
+# 声明服务端口
+EXPOSE 8081
+
+# 需要运行的命令 !!! docker-compose up 不需要执行ENTRYPOINT !!!
+#ENTRYPOINT ["/app","conf/config.yaml"]

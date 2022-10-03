@@ -27,28 +27,37 @@ func SetupRouter(mode string) *gin.Engine {
 	}
 
 	r := gin.New()
-	r.Use(logger.GinLogger(), logger.GinRecovery(true))
-	r.GET("/swagger/*any", gs.WrapHandler(swaggerFiles.Handler),
-		middlewares.RateLimitMiddleware(2*time.Second, 1)) // 令牌桶=> 每两秒钟可以取一个令牌
+	// 告诉gin框架模板文件引用的静态文件去哪里找
+	r.Static("/static", "static")
+	// 告诉gin框架去哪里找模板文件
+	r.LoadHTMLGlob("templates/*")
+
+	// 令牌桶=> 每两秒钟可以取一个令牌
+	r.Use(logger.GinLogger(), logger.GinRecovery(true), middlewares.RateLimitMiddleware(2*time.Second, 10000))
+
+	r.GET("/", controller.IndexHandler)
+	r.GET("/swagger/*any", gs.WrapHandler(swaggerFiles.Handler))
 
 	v1 := r.Group("/api/v1")
-	//注册
-	v1.POST("/signup", controller.SignUpHandler)
-	//登录
-	v1.POST("/login", controller.LoginHandler)
-
-	//注册中间件
-	v1.Use(middlewares.JWTAuthMiddleware())
 	{
-		v1.GET("/community", controller.CommunityHandler)
-		v1.GET("/community/:id", controller.CommunityDetailHandler)
+		//注册
+		v1.POST("/signup", controller.SignUpHandler)
+		//登录
+		v1.POST("/login", controller.LoginHandler)
 
-		v1.POST("/post", controller.CreatePostHandler)
-		v1.GET("/post/:id", controller.GetPostDetailHandler)
-		v1.GET("/posts", controller.GetPostListHandler)
-		v1.GET("/posts2", controller.GetPostListHandler2)
+		//注册中间件
+		v1.Use(middlewares.JWTAuthMiddleware())
+		{
+			v1.GET("/community", controller.CommunityHandler)
+			v1.GET("/community/:id", controller.CommunityDetailHandler)
 
-		v1.POST("/vote", controller.PostVoteController)
+			v1.POST("/post", controller.CreatePostHandler)
+			v1.GET("/post/:id", controller.GetPostDetailHandler)
+			v1.GET("/posts", controller.GetPostListHandler)
+			v1.GET("/posts2", controller.GetPostListHandler2)
+
+			v1.POST("/vote", controller.PostVoteController)
+		}
 	}
 
 	pprof.Register(r) //注册pprof相关路由
