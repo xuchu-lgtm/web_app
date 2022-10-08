@@ -9,16 +9,23 @@ import (
 var Conf = new(AppConfig)
 
 type AppConfig struct {
-	Name         string `mapstructure:"name"`
-	Mode         string `mapstructure:"mode"`
-	Version      string `mapstructure:"version"`
-	Port         int    `mapstructure:"port"`
-	StartTime    string `mapstructure:"start_time"`
-	MachineId    int64  `mapstructure:"machine_id"`
-	*LogConfig   `mapstructure:"log"`
-	*MySQLConfig `mapstructure:"mysql"`
-	*RedisConfig `mapstructure:"redis"`
+	Name          string `mapstructure:"name"`
+	Mode          string `mapstructure:"mode"`
+	Version       string `mapstructure:"version"`
+	Port          int    `mapstructure:"port"`
+	StartTime     string `mapstructure:"start_time"`
+	MachineId     int64  `mapstructure:"machine_id"`
+	*LogConfig    `mapstructure:"log"`
+	*MySQLConfig  `mapstructure:"mysql"`
+	*RedisConfig  `mapstructure:"redis"`
+	*ConsulConfig `mapstructure:"consul"`
 }
+type ConsulConfig struct {
+	Host string `mapstructure:"host"`
+	Port int    `mapstructure:"port"`
+	UUID string `mapstructure:"uuid"`
+}
+
 type LogConfig struct {
 	Level     string `mapstructure:"level"`
 	Filename  string `mapstructure:"filename"`

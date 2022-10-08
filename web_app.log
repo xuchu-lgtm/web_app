@@ -372,3 +372,43 @@
 {"level":"ERROR","time":"2022-10-03T13:02:07.321+0800","caller":"mysql/mysql.go:23","msg":"connect Db failed, err: %v\n","error":"dial tcp: lookup mysql8019: no such host"}
 {"level":"ERROR","time":"2022-10-03T13:03:15.434+0800","caller":"mysql/mysql.go:23","msg":"connect Db failed, err: %v\n","error":"dial tcp: lookup mysql8019: no such host"}
 {"level":"ERROR","time":"2022-10-03T13:04:21.675+0800","caller":"mysql/mysql.go:23","msg":"connect Db failed, err: %v\n","error":"dial tcp: lookup mysql8019: no such host"}
+{"level":"ERROR","time":"2022-10-08T12:00:45.464+0800","caller":"mysql/mysql.go:23","msg":"connect Db failed, err: %v\n","error":"dial tcp 101.43.29.139:3306: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"ERROR","time":"2022-10-08T12:02:26.360+0800","caller":"mysql/mysql.go:23","msg":"connect Db failed, err: %v\n","error":"dial tcp 101.43.29.139:3306: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"ERROR","time":"2022-10-08T12:05:16.229+0800","caller":"mysql/mysql.go:23","msg":"connect Db failed, err: %v\n","error":"dial tcp 101.43.29.139:3306: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"INFO","time":"2022-10-08T12:12:34.071+0800","caller":"web_app/main.go:97","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T12:12:34.093+0800","caller":"web_app/main.go:103","msg":"Server exiting"}
+{"level":"INFO","time":"2022-10-08T12:15:53.569+0800","caller":"logger/logger.go:79","msg":"*","status":200,"method":"PRI","path":"*","query":"","ip":"192.168.50.92","user-agent":"","errors":"","cost":0.0005257}
+{"level":"INFO","time":"2022-10-08T12:16:03.596+0800","caller":"logger/logger.go:79","msg":"*","status":200,"method":"PRI","path":"*","query":"","ip":"192.168.50.92","user-agent":"","errors":"","cost":0}
+{"level":"INFO","time":"2022-10-08T12:16:13.600+0800","caller":"logger/logger.go:79","msg":"*","status":200,"method":"PRI","path":"*","query":"","ip":"192.168.50.92","user-agent":"","errors":"","cost":0}
+{"level":"INFO","time":"2022-10-08T12:16:23.605+0800","caller":"logger/logger.go:79","msg":"*","status":200,"method":"PRI","path":"*","query":"","ip":"192.168.50.92","user-agent":"","errors":"","cost":0}
+{"level":"INFO","time":"2022-10-08T12:16:33.609+0800","caller":"logger/logger.go:79","msg":"*","status":200,"method":"PRI","path":"*","query":"","ip":"192.168.50.92","user-agent":"","errors":"","cost":0}
+{"level":"INFO","time":"2022-10-08T12:16:37.134+0800","caller":"web_app/main.go:97","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T12:16:37.148+0800","caller":"web_app/main.go:103","msg":"Server exiting"}
+{"level":"INFO","time":"2022-10-08T12:25:57.980+0800","caller":"logger/logger.go:79","msg":"*","status":200,"method":"PRI","path":"*","query":"","ip":"192.168.50.92","user-agent":"","errors":"","cost":0.0005173}
+{"level":"INFO","time":"2022-10-08T12:26:07.999+0800","caller":"logger/logger.go:79","msg":"*","status":200,"method":"PRI","path":"*","query":"","ip":"192.168.50.92","user-agent":"","errors":"","cost":0}
+{"level":"INFO","time":"2022-10-08T12:26:12.803+0800","caller":"web_app/main.go:103","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T12:26:12.809+0800","caller":"web_app/main.go:109","msg":"Server exiting"}
+{"level":"INFO","time":"2022-10-08T12:30:33.621+0800","caller":"web_app/main.go:103","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T12:30:33.642+0800","caller":"web_app/main.go:109","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-10-08T12:32:39.532+0800","caller":"consul/consul.go:71","msg":"注册中心地址：","url":"192.168.50.92:63510"}
+{"level":"DEBUG","time":"2022-10-08T12:32:40.989+0800","caller":"consul/consul.go:71","msg":"注册中心地址：","url":"192.168.50.92:63516"}
+{"level":"DEBUG","time":"2022-10-08T12:33:33.434+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63523"}
+{"level":"DEBUG","time":"2022-10-08T12:33:34.412+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63527"}
+{"level":"DEBUG","time":"2022-10-08T12:33:36.015+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63533"}
+{"level":"DEBUG","time":"2022-10-08T12:33:38.012+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63539"}
+{"level":"DEBUG","time":"2022-10-08T12:33:39.468+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63545"}
+{"level":"DEBUG","time":"2022-10-08T12:33:41.420+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63551"}
+{"level":"DEBUG","time":"2022-10-08T12:33:43.837+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63557"}
+{"level":"DEBUG","time":"2022-10-08T12:33:46.328+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63563"}
+{"level":"DEBUG","time":"2022-10-08T12:33:48.348+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63569"}
+{"level":"DEBUG","time":"2022-10-08T12:33:50.654+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63575"}
+{"level":"DEBUG","time":"2022-10-08T12:33:52.329+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63581"}
+{"level":"DEBUG","time":"2022-10-08T12:34:01.243+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63587"}
+{"level":"INFO","time":"2022-10-08T12:34:25.596+0800","caller":"web_app/main.go:103","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T12:34:25.605+0800","caller":"web_app/main.go:109","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-10-08T12:36:13.005+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%v","url":"192.168.50.92:63604"}
+{"level":"DEBUG","time":"2022-10-08T12:37:10.318+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%s","url":"192.168.50.92:63611"}
+{"level":"DEBUG","time":"2022-10-08T12:37:11.581+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%s","url":"192.168.50.92:63617"}
+{"level":"DEBUG","time":"2022-10-08T13:08:39.235+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%s","url":"192.168.50.92:63762"}
+{"level":"INFO","time":"2022-10-08T13:09:01.004+0800","caller":"web_app/main.go:103","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T13:09:01.011+0800","caller":"web_app/main.go:109","msg":"Server exiting"}

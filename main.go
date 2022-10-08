@@ -14,6 +14,7 @@ import (
 	"web_app/dao/mysql"
 	"web_app/dao/redis"
 	"web_app/logger"
+	"web_app/pkg/consul"
 	"web_app/pkg/snowflake"
 	"web_app/routes"
 	"web_app/settings"
@@ -49,6 +50,17 @@ func main() {
 		fmt.Printf("init logger failed, err: %v\n", err)
 		return
 	}
+
+	// 注册consul
+	consul, err := consul.NewConsul(settings.Conf.ConsulConfig)
+	if err != nil {
+		fmt.Printf("init consul failed, err: %v\n", err)
+	}
+	if err := consul.Init(settings.Conf.Name); err != nil {
+		fmt.Printf("init consul failed, err: %v\n", err)
+		return
+	}
+
 	// 3. 初始化MySql连接
 	if err := mysql.Init(settings.Conf.MySQLConfig); err != nil {
 		fmt.Printf("init mysql failed, err: %v\n", err)
@@ -86,6 +98,8 @@ func main() {
 
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
+	// 退出时注销服务
+	consul.Deregister(settings.Conf.UUID)
 	zap.L().Info("Shutdown Server...")
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
