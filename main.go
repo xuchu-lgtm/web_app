@@ -15,6 +15,7 @@ import (
 	"web_app/dao/redis"
 	"web_app/logger"
 	"web_app/pkg/consul"
+	"web_app/pkg/jaeger"
 	"web_app/pkg/snowflake"
 	"web_app/routes"
 	"web_app/settings"
@@ -39,12 +40,12 @@ func main() {
 	flag.StringVar(&configFile, "configFile", "./conf/config.yaml", "配置文件")
 	flag.Parse()
 
-	// 1. 加载配置
+	// 加载配置
 	if err := settings.Init(configFile); err != nil {
 		fmt.Printf("init settings failed, err: %v\n", err)
 		return
 	}
-	// 2. 初始化日志
+	// 初始化日志
 	defer zap.L().Sync() //把缓冲区的日志追加到里面
 	if err := logger.Init(settings.Conf.LogConfig, settings.Conf.Mode); err != nil {
 		fmt.Printf("init logger failed, err: %v\n", err)
@@ -61,18 +62,26 @@ func main() {
 		return
 	}
 
-	// 3. 初始化MySql连接
+	// 初始化MySql连接
 	if err := mysql.Init(settings.Conf.MySQLConfig); err != nil {
 		fmt.Printf("init mysql failed, err: %v\n", err)
 		return
 	}
 	defer mysql.Close()
-	// 4. 初始化Redis连接
+
+	// 初始化Redis连接
 	if err := redis.Init(settings.Conf.RedisConfig); err != nil {
 		fmt.Printf("init redis failed, err: %v\n", err)
 		return
 	}
 	defer redis.Close()
+
+	// 初始化jaeger
+	if err := jaeger.Init(settings.Conf.Name, settings.Conf.JaegerConfig); err != nil {
+		fmt.Printf("init jaeger failed, err: %v\n", err)
+		return
+	}
+	defer jaeger.Close()
 
 	//初始化snowflake
 	if err := snowflake.Init(settings.Conf.StartTime, settings.Conf.MachineId); err != nil {

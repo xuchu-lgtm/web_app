@@ -28,3 +28,6 @@ consul:
   host: 172.21.119.120
   port: 8500
   uuid: ""
+jaeger:
+  host: 172.21.119.120
+  port: 6831

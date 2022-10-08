@@ -19,11 +19,17 @@ type AppConfig struct {
 	*MySQLConfig  `mapstructure:"mysql"`
 	*RedisConfig  `mapstructure:"redis"`
 	*ConsulConfig `mapstructure:"consul"`
+	*JaegerConfig `mapstructure:"jaeger"`
 }
 type ConsulConfig struct {
 	Host string `mapstructure:"host"`
 	Port int    `mapstructure:"port"`
 	UUID string `mapstructure:"uuid"`
+}
+
+type JaegerConfig struct {
+	Host string `mapstructure:"host"`
+	Port int    `mapstructure:"port"`
 }
 
 type LogConfig struct {
