@@ -7,7 +7,6 @@ import (
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/log"
 	"go.uber.org/zap"
-	"net/http"
 	"strconv"
 	"time"
 	"web_app/dao/mysql"
@@ -15,11 +14,15 @@ import (
 )
 
 func IndexHandler(c *gin.Context) {
-	tracer := opentracing.GlobalTracer()
 
-	span := tracer.StartSpan("local index")
-	c.HTML(http.StatusOK, "index.html", nil)
-	span.Finish()
+	//tracer := opentracing.GlobalTracer()
+	//span := tracer.StartSpan("local index")
+
+	//c.HTML(http.StatusOK, "index.html", nil)
+
+	//span.Finish()
+
+	span := opentracing.SpanFromContext(c.Request.Context())
 
 	ctx := opentracing.ContextWithSpan(context.Background(), span)
 	Foo(ctx)

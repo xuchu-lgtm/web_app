@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
+	"github.com/opentracing-contrib/go-gin/ginhttp"
+	"github.com/opentracing/opentracing-go"
 	swaggerFiles "github.com/swaggo/files"
 	gs "github.com/swaggo/gin-swagger"
 	"net/http"
@@ -32,8 +34,10 @@ func SetupRouter(mode string) *gin.Engine {
 	// 告诉gin框架去哪里找模板文件
 	r.LoadHTMLGlob("templates/*")
 
-	// 令牌桶=> 每两秒钟可以取一个令牌
-	r.Use(logger.GinLogger(), logger.GinRecovery(true), middlewares.RateLimitMiddleware(2*time.Second, 10000))
+	// 中间件
+	r.Use(logger.GinLogger(), logger.GinRecovery(true),
+		middlewares.RateLimitMiddleware(2*time.Second, 10000), // 令牌桶=> 每两秒钟可以取一个令牌
+		ginhttp.Middleware(opentracing.GlobalTracer()))        // 使用 jaeger 链路追踪
 
 	r.GET("/", controller.IndexHandler)
 	r.GET("/swagger/*any", gs.WrapHandler(swaggerFiles.Handler))
@@ -50,7 +54,7 @@ func SetupRouter(mode string) *gin.Engine {
 		v1.GET("/community", controller.CommunityHandler)
 		v1.GET("/community/:id", controller.CommunityDetailHandler)
 
-		//注册中间件
+		// 注册中间件
 		v1.Use(middlewares.JWTAuthMiddleware())
 		{
 			v1.POST("/post", controller.CreatePostHandler)

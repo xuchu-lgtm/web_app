@@ -5,8 +5,8 @@ import (
 	"github.com/hashicorp/consul/api"
 	"github.com/satori/go.uuid"
 	"go.uber.org/zap"
-	"net"
 	"web_app/settings"
+	"web_app/utils/netutil"
 )
 
 type consul struct {
@@ -14,11 +14,11 @@ type consul struct {
 }
 
 func (c *consul) Init(name string) error {
-	ip, err := GetOutboundIP()
+	ip, err := netutil.GetOutboundIP()
 	if err != nil {
 		return err
 	}
-	port, err := GetFreePort()
+	port, err := netutil.GetAvailablePort()
 	settings.Conf.Port = port
 	if err != nil {
 		return err
@@ -36,31 +36,6 @@ func NewConsul(cfg *settings.ConsulConfig) (*consul, error) {
 		return nil, err
 	}
 	return &consul{c}, nil
-}
-
-// GetOutboundIP 获取本机的出口IP
-func GetOutboundIP() (net.IP, error) {
-	conn, err := net.Dial("udp", "8.8.8.8:80")
-	if err != nil {
-		return nil, err
-	}
-	defer conn.Close()
-	addr := conn.LocalAddr().(*net.UDPAddr)
-	return addr.IP, nil
-}
-
-// GetFreePort 获取本机端口
-func GetFreePort() (int, error) {
-	addr, err := net.ResolveTCPAddr("tcp", "localhost:0")
-	if err != nil {
-		return 0, err
-	}
-	l, err := net.ListenTCP("tcp", addr)
-	if err != nil {
-		return 0, err
-	}
-	defer l.Close()
-	return l.Addr().(*net.TCPAddr).Port, nil
 }
 
 // RegisterService 将gRPC服务注册到consul

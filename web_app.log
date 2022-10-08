@@ -476,3 +476,40 @@
 {"level":"INFO","time":"2022-10-08T19:20:40.790+0800","caller":"logger/logger.go:79","msg":"/favicon.ico","status":200,"method":"GET","path":"/favicon.ico","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":0}
 {"level":"INFO","time":"2022-10-08T19:22:34.345+0800","caller":"web_app/main.go:112","msg":"Shutdown Server..."}
 {"level":"INFO","time":"2022-10-08T19:22:34.361+0800","caller":"web_app/main.go:118","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-10-08T20:20:39.188+0800","caller":"consul/consul.go:71","msg":"注册中心地址：%s","url":"192.168.50.92:51105"}
+{"level":"INFO","time":"2022-10-08T20:21:09.793+0800","caller":"logger/logger.go:79","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":3.0123522}
+{"level":"INFO","time":"2022-10-08T20:21:09.889+0800","caller":"logger/logger.go:79","msg":"/favicon.ico","status":200,"method":"GET","path":"/favicon.ico","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":0.0027141}
+{"level":"INFO","time":"2022-10-08T20:24:41.728+0800","caller":"logger/logger.go:79","msg":"/api/v1/post/98593907008344064","status":200,"method":"GET","path":"/api/v1/post/98593907008344064","query":"","ip":"192.168.50.92","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.1068246}
+{"level":"INFO","time":"2022-10-08T20:25:45.329+0800","caller":"logger/logger.go:79","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"192.168.50.92","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0541436}
+{"level":"INFO","time":"2022-10-08T22:17:16.572+0800","caller":"web_app/main.go:112","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T22:17:16.585+0800","caller":"web_app/main.go:118","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-10-08T23:06:23.545+0800","caller":"consul/consul.go:46","msg":"注册中心地址：%s","url":"192.168.50.92:57525"}
+{"level":"INFO","time":"2022-10-08T23:06:41.491+0800","caller":"web_app/main.go:112","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T23:06:41.501+0800","caller":"web_app/main.go:118","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-10-08T23:06:51.397+0800","caller":"consul/consul.go:46","msg":"注册中心地址：%s","url":"192.168.50.92:57537"}
+{"level":"INFO","time":"2022-10-08T23:07:01.074+0800","caller":"web_app/main.go:112","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T23:07:01.079+0800","caller":"web_app/main.go:118","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-10-08T23:07:11.800+0800","caller":"consul/consul.go:46","msg":"注册中心地址：%s","url":"192.168.50.92:57549"}
+{"level":"INFO","time":"2022-10-08T23:07:28.948+0800","caller":"web_app/main.go:112","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T23:07:28.961+0800","caller":"web_app/main.go:118","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-10-08T23:44:04.665+0800","caller":"consul/consul.go:46","msg":"注册中心地址：%s","url":"192.168.50.92:58829"}
+{"level":"INFO","time":"2022-10-08T23:44:52.905+0800","caller":"logger/logger.go:79","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":3.0167048}
+{"level":"INFO","time":"2022-10-08T23:44:53.009+0800","caller":"logger/logger.go:79","msg":"/favicon.ico","status":200,"method":"GET","path":"/favicon.ico","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":0.0005091}
+{"level":"INFO","time":"2022-10-08T23:46:57.298+0800","caller":"logger/logger.go:79","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"192.168.50.92","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0380598}
+{"level":"INFO","time":"2022-10-08T23:48:43.823+0800","caller":"logger/logger.go:79","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":3.0266831}
+{"level":"INFO","time":"2022-10-08T23:48:43.910+0800","caller":"logger/logger.go:79","msg":"/favicon.ico","status":200,"method":"GET","path":"/favicon.ico","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":0.0015441}
+{"level":"INFO","time":"2022-10-08T23:49:45.722+0800","caller":"logger/logger.go:79","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":3.0173015}
+{"level":"INFO","time":"2022-10-08T23:49:45.793+0800","caller":"logger/logger.go:79","msg":"/favicon.ico","status":200,"method":"GET","path":"/favicon.ico","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":0.0008264}
+{"level":"INFO","time":"2022-10-08T23:50:27.149+0800","caller":"web_app/main.go:112","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T23:50:27.154+0800","caller":"web_app/main.go:118","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-10-08T23:55:38.653+0800","caller":"consul/consul.go:46","msg":"注册中心地址：%s","url":"192.168.50.92:58928"}
+{"level":"INFO","time":"2022-10-08T23:56:10.092+0800","caller":"logger/logger.go:79","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":3.0159618}
+{"level":"INFO","time":"2022-10-08T23:56:10.187+0800","caller":"logger/logger.go:79","msg":"/favicon.ico","status":200,"method":"GET","path":"/favicon.ico","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":0.0003607}
+{"level":"INFO","time":"2022-10-08T23:57:05.407+0800","caller":"logger/logger.go:79","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"192.168.50.92","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0456995}
+{"level":"INFO","time":"2022-10-08T23:57:55.859+0800","caller":"web_app/main.go:112","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T23:57:55.863+0800","caller":"web_app/main.go:118","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-10-08T23:58:04.552+0800","caller":"consul/consul.go:46","msg":"注册中心地址：%s","url":"192.168.50.92:58951"}
+{"level":"INFO","time":"2022-10-08T23:58:25.308+0800","caller":"logger/logger.go:79","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":3.0227222}
+{"level":"INFO","time":"2022-10-08T23:58:25.375+0800","caller":"logger/logger.go:79","msg":"/favicon.ico","status":200,"method":"GET","path":"/favicon.ico","query":"","ip":"192.168.50.92","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36","errors":"","cost":0.0003411}
+{"level":"INFO","time":"2022-10-08T23:58:55.308+0800","caller":"web_app/main.go:112","msg":"Shutdown Server..."}
+{"level":"INFO","time":"2022-10-08T23:58:55.325+0800","caller":"web_app/main.go:118","msg":"Server exiting"}

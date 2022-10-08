@@ -17,6 +17,7 @@ require (
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/juju/ratelimit v1.0.2
 	github.com/natefinch/lumberjack v2.0.0+incompatible
+	github.com/opentracing-contrib/go-gin v0.0.0-20201220185307-1dd2273433a4
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/satori/go.uuid v1.2.0
 	github.com/spf13/viper v1.13.0
@@ -25,7 +26,6 @@ require (
 	github.com/swaggo/gin-swagger v1.5.3
 	github.com/swaggo/swag v1.8.1
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
-	github.com/uber/jaeger-lib v2.4.1+incompatible
 	go.uber.org/zap v1.17.0
 )
 
@@ -73,6 +73,7 @@ require (
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.4.1 // indirect
+	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/ugorji/go/codec v1.2.7 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
