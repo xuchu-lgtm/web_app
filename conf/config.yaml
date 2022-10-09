@@ -1,5 +1,6 @@
 name: "web_app"
 mode: "dev"
+ip: ""
 port: 8081
 version: "v1.0.1"
 start_time: "2022-01-01"

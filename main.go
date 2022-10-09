@@ -57,7 +57,7 @@ func main() {
 	if err != nil {
 		fmt.Printf("init consul failed, err: %v\n", err)
 	}
-	if err := consul.Init(settings.Conf.Name); err != nil {
+	if err := consul.Init(settings.Conf); err != nil {
 		fmt.Printf("init consul failed, err: %v\n", err)
 		return
 	}

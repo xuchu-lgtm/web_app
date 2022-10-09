@@ -3,26 +3,24 @@ package controller
 import (
 	"context"
 	"errors"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/log"
 	"go.uber.org/zap"
+	"net/http"
 	"strconv"
 	"time"
 	"web_app/dao/mysql"
 	"web_app/logic"
+	"web_app/settings"
 )
 
 func IndexHandler(c *gin.Context) {
 
-	//tracer := opentracing.GlobalTracer()
-	//span := tracer.StartSpan("local index")
-
-	//c.HTML(http.StatusOK, "index.html", nil)
-
-	//span.Finish()
-
 	span := opentracing.SpanFromContext(c.Request.Context())
+
+	c.HTML(http.StatusOK, "index.html", nil)
 
 	ctx := opentracing.ContextWithSpan(context.Background(), span)
 	Foo(ctx)
@@ -47,6 +45,7 @@ func Bar(ctx context.Context) {
 	// 假设Bar发生了某些错误
 	err := errors.New("something wrong")
 	span.LogFields(
+		log.String("ip", fmt.Sprintf("%s:%d", settings.Conf.Ip, settings.Conf.Port)),
 		log.String("event", "error"),
 		log.String("message", err.Error()),
 	)

@@ -12,6 +12,7 @@ type AppConfig struct {
 	Name          string `mapstructure:"name"`
 	Mode          string `mapstructure:"mode"`
 	Version       string `mapstructure:"version"`
+	Ip            string `mapstructure:"ip"`
 	Port          int    `mapstructure:"port"`
 	StartTime     string `mapstructure:"start_time"`
 	MachineId     int64  `mapstructure:"machine_id"`

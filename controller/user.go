@@ -33,6 +33,7 @@ func SignUpHandler(c *gin.Context) {
 		ResponseError(c, CodeRegisterError)
 		return
 	}
+
 	ResponseSuccess(c, nil)
 }
 

@@ -13,17 +13,18 @@ type consul struct {
 	client *api.Client
 }
 
-func (c *consul) Init(name string) error {
+func (c *consul) Init(cfg *settings.AppConfig) error {
 	ip, err := netutil.GetOutboundIP()
 	if err != nil {
 		return err
 	}
 	port, err := netutil.GetAvailablePort()
-	settings.Conf.Port = port
 	if err != nil {
 		return err
 	}
-	return c.RegisterService(name, ip.String(), port)
+	settings.Conf.Ip = ip.String()
+	settings.Conf.Port = port
+	return c.RegisterService(cfg)
 }
 
 // NewConsul 连接至consul服务返回一个consul对象
@@ -39,9 +40,9 @@ func NewConsul(cfg *settings.ConsulConfig) (*consul, error) {
 }
 
 // RegisterService 将gRPC服务注册到consul
-func (c *consul) RegisterService(serviceName string, ip string, port int) error {
+func (c *consul) RegisterService(cfg *settings.AppConfig) error {
 	settings.Conf.UUID = uuid.NewV4().String()
-	url := fmt.Sprintf("%s:%d", ip, port)
+	url := fmt.Sprintf("%s:%d", cfg.Ip, cfg.Port)
 
 	zap.L().Debug("注册中心地址：%s", zap.String("url", url))
 
@@ -60,11 +61,11 @@ func (c *consul) RegisterService(serviceName string, ip string, port int) error 
 		DeregisterCriticalServiceAfter: "20s",
 	}*/
 	srv := &api.AgentServiceRegistration{
-		ID:      settings.Conf.UUID, // 服务唯一ID
-		Name:    serviceName,        // 服务名称
-		Tags:    []string{"v1.0.0"}, // 为服务打标签
-		Address: ip,
-		Port:    port,
+		ID:      settings.Conf.UUID,    // 服务唯一ID
+		Name:    cfg.Name,              // 服务名称
+		Tags:    []string{cfg.Version}, // 为服务打标签
+		Address: cfg.Ip,
+		Port:    cfg.Port,
 		Check:   check,
 	}
 	return c.client.Agent().ServiceRegister(srv)

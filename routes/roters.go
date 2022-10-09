@@ -44,9 +44,7 @@ func SetupRouter(mode string) *gin.Engine {
 
 	v1 := r.Group("/api/v1")
 	{
-		//注册
 		v1.POST("/signup", controller.SignUpHandler)
-		//登录
 		v1.POST("/login", controller.LoginHandler)
 		v1.GET("/post/:id", controller.GetPostDetailHandler)
 		v1.GET("/posts", controller.GetPostListHandler)

@@ -8,7 +8,7 @@ import (
 
 const TokenExpireDuration = time.Hour * 2
 
-var mySecret = []byte("夏天夏天悄悄过去")
+var mySecret = []byte("B8ft2Jq4XeYepP4wXk7g0hG6mQblLdLm")
 
 // MyClaims jwt包自带的jwt.StandardClaims只包含官方字段
 type MyClaims struct {
@@ -44,5 +44,6 @@ func ParseToken(tokenString string) (*MyClaims, error) {
 	if token.Valid {
 		return mc, nil
 	}
+
 	return nil, errors.New("invalid token")
 }
