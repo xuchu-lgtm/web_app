@@ -2,7 +2,7 @@
 version: "3.7"
 services:
   mysql8019:
-    image: "mysql:8.0.19"
+    image: mysql:8.0.19
     ports:
       - "3306:3306"
     command: "--default-authentication-plugin=mysql_native_password --init-file /data/application/init.sql"
@@ -13,17 +13,53 @@ services:
     volumes:
       - ./init.sql:/data/application/init.sql
   redis507:
-      image: "redis:5.0.7"
-      ports:
-        - "6379:6379"
-      command: redis-server --requirepass "ms.it@sun^"
-      volumes:
-        - ./data:/data
+    image: redis:5.0.7
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass "ms.it@sun^"
+    volumes:
+      - ./data:/data
+  consul1:
+    image: consul
+    container_name: node1
+    command: agent -server -bootstrap-expect=3 -node=node1 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1
+  consul2:
+    image: consul
+    container_name: node2
+    command: agent -server -retry-join=node1 -bootstrap-expect=3 -node=node2 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1
+    depends_on:
+      - consul1
+  consul3:
+    image: consul
+    container_name: node3
+    command: agent -server -retry-join=node1 -bootstrap-expect=3 -node=node3 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1
+    depends_on:
+      - consul1
+  consul4:
+    image: consul
+    container_name: node4
+    command: agent -retry-join=node1 -node=node4 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -ui
+    ports:
+      - "8500:8500"
+      - "8300:8300"
+      - "8301:8301"
+      - "8302:8302"
+      - "8600:8600/udp"
+    depends_on:
+      - consul2
+      - consul3
+  jaeger:
+    image: jaegertracing/all-in-one
+    ports:
+      - "6831:6831/udp"
+      - "16686:16686"
   web_app:
     build: .
-    command: sh -c "./wait-for.sh mysql8019:3306 redis507:6379 -- ./app ./conf/config.yaml"
+    command: sh -c "./wait-for.sh mysql8019:3306 redis507:6379 consul4:8500 jaeger:16686 -- ./app ./conf/config.yaml"
     depends_on:
       - mysql8019
       - redis507
+      - consul4
+      - jaeger
     ports:
       - "8888:8081"

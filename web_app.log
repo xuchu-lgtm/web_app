@@ -645,3 +645,4 @@
 {"level":"INFO","time":"2022-10-09T15:16:43.617+0800","caller":"logger/logger.go:79","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"172.21.112.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":3.0315589}
 {"level":"INFO","time":"2022-10-09T16:54:53.836+0800","caller":"web_app/main.go:112","msg":"Shutdown Server..."}
 {"level":"INFO","time":"2022-10-09T16:54:53.853+0800","caller":"web_app/main.go:118","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-10-28T00:04:10.681+0800","caller":"consul/consul.go:47","msg":"注册中心地址：%s","url":"192.168.50.92:57305"}
