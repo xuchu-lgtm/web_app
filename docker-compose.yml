@@ -55,7 +55,7 @@ services:
       - "16686:16686"
   web_app:
     build: .
-    command: ./wait-for mysql8019:3306 redis507:6379 consul4:8500 jaeger:16686 -t 30 -- ./app ./conf/config.yaml
+    command: ./wait-for mysql8019:3306 redis507:6379 consul4:8500 jaeger:16686 -t 60 -- ./app ./conf/config.yaml
     depends_on:
       - mysql8019
       - redis507
