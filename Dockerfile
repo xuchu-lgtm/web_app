@@ -26,8 +26,7 @@ RUN go build -o app .
 ###################
 FROM debian:stretch-slim
 
-COPY ./wait-for.sh /
-COPY ./wait-for-it.sh /
+COPY ./wait-for /
 COPY ./docs /docs
 COPY ./templates /templates
 COPY ./static /static
@@ -39,7 +38,7 @@ COPY --from=builder /build/app /
 RUN set -eux \
     && apt-get update \
     && apt-get install -y --no-install-recommends netcat \
-    && chmod 777 wait-for.sh
+    && chmod 777 wait-for
 
 # 声明服务端口
 EXPOSE 8081
